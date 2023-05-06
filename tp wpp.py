@@ -5,15 +5,21 @@ contrasena = "12345"
 def clear():   
     os.system('cls')
 
-def construccion():
+def construccion_menu():
     print ("En Construccion...")
     menu()
-
     
+def construccion_gestion():
+    print ("En Construccion...")
+    gestion_locales()
+
+def construccion_novedades():
+    print ("En Construccion...")
+    gestion_novedades()
+
 def menu():
     print("\t MENU")
     print(" (1) Gestion de locales \n (2) Crear cuentas de dueños de locales \n (3) Aprobar/Denegar solicitudes de descuento \n (4) Gestion de novedades \n (5) Reporte de utilizacion de descuentos \n (0) Salir")
-    global opcion
     opcion = (input("\nIngrese una opcion: "))
     clear()
     
@@ -22,8 +28,10 @@ def menu():
         print("\t MENU")
         print(" (1) Gestion de locales \n (2) Crear cuentas de dueños de locales \n (3) Aprobar/Denegar solicitudes de descuento \n (4) Gestion de novedades \n (5) Reporte de utilizacion de descuentos \n (0) Salir")
         opcion = (input("\nIngrese una opcion: "))
+        clear()
+        
     while opcion == "2" or opcion == "3" or opcion == "5":
-        construccion()
+        construccion_menu()
         opcion = (input("\nIngrese una opcion: "))
         
     if opcion == "1":
@@ -58,7 +66,6 @@ def check():
         exit()
 
 def login():
-    global mail
     mail = str(input("Ingrese el correo electronico: "))
     while mail != usuario:
         print("Inserte un correo valido")
@@ -70,12 +77,14 @@ def gestion_locales():
     
     print("\n \tGESTION DE LOCALES")
     print("\n (a) Crear locales \n (b) Modificar local \n (c) Eliminar local \n (d) Volver ")
-    global opcion_1
     opcion_1 = str(input("\nIngrese una opcion: "))
     clear()
     while opcion_1 != "a" and opcion_1 != "b" and opcion_1 != "c" and opcion_1 != "d":
         print ("ERROR. Ingrese una opcion valida")
-        gestion_locales()
+        print("\n \tGESTION DE LOCALES")
+        print("\n (a) Crear locales \n (b) Modificar local \n (c) Eliminar local \n (d) Volver ")
+        opcion_1 = (input("\nIngrese una opcion: "))
+        clear()
         
     if opcion_1 == "a":
         clear()
@@ -83,8 +92,8 @@ def gestion_locales():
                   
     elif opcion_1 == "b" or opcion_1 == "c":
         clear()
-        print("En construccion...")
-        gestion_locales()
+        construccion_gestion()
+        opcion_1 = (input("\nIngrese una opcion: "))
                 
 
     elif opcion_1 == "d":
@@ -93,11 +102,6 @@ def gestion_locales():
 
 def crear_locales():
     print("\t Crear Locales")
-    global indumentaria
-    global perfumeria
-    global comida
-    global mayor
-    global menor
 
     mayor = 0
     menor = 0 
@@ -165,18 +169,20 @@ def crear_locales():
 def gestion_novedades():
     print("\n \t GESTION DE NOVEDADES")
     print("\n (a) Crear novedades \n (b) Modificar novedad \n (c) Eliminar novedad \n (d) Ver reporte de novedades \n (e) Volver ")
-    global opcion_4
     opcion_4 = str(input("\nIngrese una opcion: "))
     clear()
     
     while opcion_4 != "a" and opcion_4 != "b" and opcion_4 != "c" and opcion_4 != "d" and opcion_4 != "e":
         print ("ERROR. Ingrese una opcion valida")
-        gestion_novedades()
+        print("\n \t GESTION DE NOVEDADES")
+        print("\n (a) Crear novedades \n (b) Modificar novedad \n (c) Eliminar novedad \n (d) Ver reporte de novedades \n (e) Volver ")
+        opcion_4 = str(input("\nIngrese una opcion: "))
+        clear()
+    
         
     if opcion_4 == "a" or opcion_4 == "b" or opcion_4 == "c" or opcion_4 == "d":
         clear()
-        print("En construccion...")
-        gestion_novedades()
+        construccion_novedades()
             
     elif opcion_4 == "e":
         clear()
